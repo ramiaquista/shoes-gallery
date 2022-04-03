@@ -1,0 +1,59 @@
+<%= form_with(model: shoe) do |form| %>
+  <% if shoe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
+
+      <ul>
+      <% shoe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :model, class: 'form-label' %>
+      <%= form.text_field :model, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :edition, class: 'form-label' %>
+      <%= form.text_field :edition, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :year, class: 'form-label' %>
+      <%= form.text_field :year, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :color, class: 'form-label' %>
+      <%= form.text_field :color, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :image, class: 'form-label' %>
+      <%= form.text_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <% if shoe.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', shoe, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if shoe.persisted? %>
+      <%= link_to "Cancel", shoe, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", shoes_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

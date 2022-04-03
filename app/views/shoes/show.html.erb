@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to shoes_path, class: 'btn btn-default' do %>
+    All Shoes
+  <% end %>
+  <% if current_user.admin %>
+    <%= link_to edit_shoe_path, class: 'btn btn-primary' do %>
+      Edit shoe
+    <% end %>
+  <% end %>
+  <h1>
+    <%= @shoe.name %> <small>by <%= @shoe.model%></small>
+  </h1>
+  <image src="<%= @shoe.image %>" alt="<%= @shoe.name %>">
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Edition:</dt>
+  <dd><%= @shoe.edition %></dd>
+  <dt>Year:</dt>
+  <dd><%= @shoe.year %></dd>
+  <dt>Color:</dt>
+  <dd><%= @shoe.color %></dd>
+</dl>
